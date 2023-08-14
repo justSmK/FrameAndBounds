@@ -80,10 +80,10 @@ class ViewPanel: UIView {
         frameHeightSlider.minimumValue = 10
         frameHeightSlider.maximumValue = Float(currentHeight)
         
-        boundsXSlider.minimumValue = 0
+        boundsXSlider.minimumValue = -Float(currentWidth)
         boundsXSlider.maximumValue = Float(currentWidth)
         
-        boundsYSlider.minimumValue = 0
+        boundsYSlider.minimumValue = -Float(currentHeight)
         boundsYSlider.maximumValue = Float(currentHeight)
         
         boundsWidthSlider.minimumValue = 30
@@ -311,6 +311,28 @@ class ViewPanel: UIView {
         centerXLabel.text = "center x = \(round(sourceData.center.x * roundV) / roundV)"
         centerYLabel.text = "center y = \(round(sourceData.center.y * roundV) / roundV)"
         rotationLabel.text = "rotation = \(sourceData.transform)"
+        
+        let frameOriginX = Float(sourceData.frame.origin.x)
+        let frameOriginY = Float(sourceData.frame.origin.y)
+        let frameWidth = Float(sourceData.frame.size.width)
+        let frameHeight = Float(sourceData.frame.size.height)
+        let boundsOriginX = Float(sourceData.bounds.origin.x)
+        let boundsOriginY = Float(sourceData.bounds.origin.y)
+        let boundsWidth = Float(sourceData.bounds.size.width)
+        let boundsHeight = Float(sourceData.bounds.size.height)
+        let centerX = Float(sourceData.center.x)
+        let centerY = Float(sourceData.center.y)
+        
+        frameXSlider.setValue(frameOriginX, animated: true)
+        frameYSlider.setValue(frameOriginY, animated: true)
+        frameWidthSlider.setValue(frameWidth, animated: true)
+        frameHeightSlider.setValue(frameHeight, animated: true)
+        boundsXSlider.setValue(boundsOriginX, animated: true)
+        boundsYSlider.setValue(boundsOriginY, animated: true)
+        boundsWidthSlider.setValue(boundsWidth, animated: true)
+        boundsHeightSlider.setValue(boundsHeight, animated: true)
+        centerXSlider.setValue(centerX, animated: true)
+        centerYSlider.setValue(centerY, animated: true)
     }
     
     private func updateSliders() {
@@ -346,76 +368,76 @@ extension ViewPanel {
         delegate?.didChangeFrameX(value: CGFloat(frameXSlider.value))
 //        frameXLabel.text = "frame x = \(frameXSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func frameYSliderChanged() {
         delegate?.didChangeFrameY(value: CGFloat(frameYSlider.value))
 //        frameYLabel.text = "frame y = \(frameYSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func frameWidthSliderChanged() {
         delegate?.didChangeFrameWidth(value: CGFloat(frameWidthSlider.value))
 //        frameWidthLabel.text = "frame width = \(frameWidthSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func frameHeightSliderChanged() {
         delegate?.didChangeFrameHeight(value: CGFloat(frameHeightSlider.value))
 //        frameHeightLabel.text = "frame height = \(frameHeightSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func boundsXSliderChanged() {
         delegate?.didChangeBoundsX(value: CGFloat(boundsXSlider.value))
 //        boundsXLabel.text = "bounds x = \(boundsXSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func boundsYSliderChanged() {
         delegate?.didChangeBoundsY(value: CGFloat(boundsYSlider.value))
 //        boundsYLabel.text = "bounds y = \(boundsYSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func boundsWidthSliderChanged() {
         delegate?.didChangeBoundsWidth(value: CGFloat(boundsWidthSlider.value))
 //        boundsWidthLabel.text = "bounds width = \(boundsWidthSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func boundsHeightSliderChanged() {
         delegate?.didChangeBoundsHeight(value: CGFloat(boundsHeightSlider.value))
 //        boundsHeightLabel.text = "bounds height = \(boundsHeightSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func centerXSliderChanged() {
         delegate?.didChangeCenterX(value: CGFloat(centerXSlider.value))
 //        centerXLabel.text = "center x = \(centerXSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func centerYSliderChanged() {
         delegate?.didChangeCenterY(value: CGFloat(centerYSlider.value))
 //        centerYLabel.text = "center y = \(centerYSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
     
     @objc private func rotationSliderChanged() {
         delegate?.didChangeRotation(value: CGFloat(rotationSlider.value))
 //        rotationLabel.text = "rotation = \(rotationSlider.value)"
         updateLabels()
-        updateSliders()
+//        updateSliders()
     }
 }
