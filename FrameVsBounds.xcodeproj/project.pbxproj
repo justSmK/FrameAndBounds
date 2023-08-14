@@ -12,6 +12,7 @@
 		BB5903B62A8A8D34009D37F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5903B52A8A8D34009D37F7 /* ViewController.swift */; };
 		BB5903BB2A8A8D36009D37F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB5903BA2A8A8D36009D37F7 /* Assets.xcassets */; };
 		BB5903BE2A8A8D36009D37F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB5903BC2A8A8D36009D37F7 /* LaunchScreen.storyboard */; };
+		BB5903C62A8A99B5009D37F7 /* ViewPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5903C52A8A99B4009D37F7 /* ViewPanel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BB5903BA2A8A8D36009D37F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB5903BD2A8A8D36009D37F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB5903BF2A8A8D36009D37F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB5903C52A8A99B4009D37F7 /* ViewPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPanel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				BB5903B12A8A8D34009D37F7 /* AppDelegate.swift */,
 				BB5903B32A8A8D34009D37F7 /* SceneDelegate.swift */,
 				BB5903B52A8A8D34009D37F7 /* ViewController.swift */,
+				BB5903C52A8A99B4009D37F7 /* ViewPanel.swift */,
 				BB5903BA2A8A8D36009D37F7 /* Assets.xcassets */,
 				BB5903BC2A8A8D36009D37F7 /* LaunchScreen.storyboard */,
 				BB5903BF2A8A8D36009D37F7 /* Info.plist */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB5903B62A8A8D34009D37F7 /* ViewController.swift in Sources */,
+				BB5903C62A8A99B5009D37F7 /* ViewPanel.swift in Sources */,
 				BB5903B22A8A8D34009D37F7 /* AppDelegate.swift in Sources */,
 				BB5903B42A8A8D34009D37F7 /* SceneDelegate.swift in Sources */,
 			);
