@@ -13,7 +13,6 @@ class ViewController: UIViewController {
         let view = UIView()
         view.layer.borderColor = UIColor.orange.cgColor
         view.layer.borderWidth = 1
-//        view.clipsToBounds = true
         return view
     }()
     
@@ -34,6 +33,17 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setupUI()
         setupConstraints()
+        setupNavigationController()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        if flagStop {
+            guard let currentScreenData = view.window?.windowScene?.screen.bounds else { return }
+            let currentWidth = currentScreenData.width
+            let currentHeight = currentScreenData.height
+            viewPanel.configurate(currentWidth: currentWidth, currentHeight: currentHeight)
+            flagStop = false
+        }
     }
     
     private func setupUI() {
@@ -47,15 +57,15 @@ class ViewController: UIViewController {
         viewPanel.delegate = self
     }
     
-    override func viewWillLayoutSubviews() {
-        if flagStop {
-            guard let currentScreenData = view.window?.windowScene?.screen.bounds else { return }
-            let currentWidth = currentScreenData.width
-            let currentHeight = currentScreenData.height
-            viewPanel.configurate(currentWidth: currentWidth, currentHeight: currentHeight)
-            flagStop = false
-        }
-        
+    private func setupNavigationController() {
+        let rightBarButton = UIBarButtonItem(
+            title: "Toggle ClipsToBounds",
+            image: nil,
+            target: self,
+            action: #selector(didBarButtonTapped)
+        )
+        navigationItem.rightBarButtonItem = rightBarButton
+        navigationItem.prompt = "Clips to bounds:: " + String(containerView.clipsToBounds)
     }
     
     private func setupConstraints() {
@@ -86,6 +96,12 @@ class ViewController: UIViewController {
         print("Center y: \(containerView.center.y)")
         print("Rotation \(containerView.transform)")
         print("------------------------------------------------------------------------------")
+    }
+    
+    @objc
+    private func didBarButtonTapped() {
+        containerView.clipsToBounds.toggle()
+        navigationItem.prompt = "Clips to bounds: " + String(containerView.clipsToBounds)
     }
 }
 
